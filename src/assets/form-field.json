@@ -1,0 +1,74 @@
+[
+       
+        {
+            "name":"name",
+            "label":"Name",
+            "value":"",
+            "type":"text",
+            "validators":{
+                "required":true
+            }
+        },
+        {
+            "name":"email",
+            "label":"Email",
+            "value":"",
+            "type":"email",
+            "validators":{
+                "required":true
+            }
+        },
+        {
+            "name":"password",
+            "label":"Password",
+            "value":"",
+            "type":"password",
+            "validators":{
+                "required":true
+            }
+        },
+        {
+            "name":"date",
+            "label":"Date of Birth",
+            "value":"",
+            "type":"date",
+            "validators":{
+                "required":true
+            }
+        },
+        {
+            "name":"salary",
+            "label":"Salary",
+            "value":"",
+            "type":"decimal",
+            "validators":{
+                "required":true
+            }
+        },
+        {
+            "name":"country",
+            "label":"Country",
+            "value":"",
+            "type":"dropdown",
+            "validators":{
+                "required":true
+            },
+            "options":[
+                {"label":"India", "value":"India"},
+                {"label":"USA", "value":"USA"},
+                 {"label":"Canada", "value":"Canada"},
+                 {"label":"Australia", "value":"Australia"},
+                 {"label":"Netherland", "value":"Netherland"}
+            ]
+        },
+        {
+            "name": "image",
+            "label": "Image",
+            "value": "",
+            "type": "file",
+            "validators": {
+                "required": true
+            }
+        }
+
+    ]

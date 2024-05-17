@@ -1,0 +1,22 @@
+<form (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let fields of formFields" [ngTemplateOutlet]="fieldTemplate" [ngTemplateOutletContext]="{ $implicit: fields }"></ng-container>
+  <button type="submit">Submit</button>
+</form>
+
+<ng-template #fieldTemplate let-field>
+  <div>
+    <label [for]="field.name">{{ field.label }}</label>
+    <ng-container [ngSwitch]="field.type">
+      <input *ngSwitchCase="'text'" type="text" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+      <input *ngSwitchCase="'date'" type="date" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+      <input *ngSwitchCase="'email'" type="email" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+      <input *ngSwitchCase="'password'" type="password" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+      <input *ngSwitchCase="'decimal'" type="number" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+      <select *ngSwitchCase="'dropdown'" [id]="field.name" [(ngModel)]="formData[field.name]" [required]="field.validators.required">
+        <option *ngFor="let option of field.options" [value]="option.value">{{ option.label }}</option>
+      </select>
+      <input *ngSwitchCase="'file'" type="file" [id]="field.name" (change)="onFileChange($event, field)" [required]="field.validators.required">
+      <img *ngIf="field.type === 'file' && formData[field.name]" [src]="formData[field.name]" alt="Uploaded Image" style="max-width: 200px;">
+    </ng-container>
+  </div>
+</ng-template>
